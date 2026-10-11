@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>MCN SailOps V4.3 Classic | Marine Crew Numansdorp</title>
+<style>
+:root{--bg:#06121d;--panel:#0c2131;--panel2:#102b40;--line:#24465b;--text:#e9f4fb;--muted:#9bb6c8;--cyan:#49d8e8;--orange:#ff9e45;--green:#6ce0ad;--red:#ff7272}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at top right,#123c51 0,#07131f 48%,#050c13 100%);color:var(--text);font-family:Inter,Segoe UI,system-ui,sans-serif}
+header{padding:22px clamp(16px,4vw,44px) 25px;border-bottom:1px solid var(--line);background:#07131fdc}
+.top{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}.logo{display:flex;align-items:center;gap:12px;font-weight:950;letter-spacing:1.3px}.emblem{width:48px;height:48px;border:2px solid var(--cyan);border-radius:50%;display:grid;place-items:center;font-size:25px;box-shadow:0 0 20px #49d8e833}.logo small{display:block;color:var(--cyan);font-size:.66rem;letter-spacing:2px;margin-top:3px}.classified{font-size:.72rem;letter-spacing:1.5px;border:1px solid var(--orange);color:var(--orange);padding:8px 11px;border-radius:5px;font-weight:900}
+h1{font-size:clamp(1.8rem,4vw,3rem);margin:23px 0 7px;line-height:1.04;letter-spacing:-1px}h1 span{color:var(--cyan)}.sub{color:var(--muted);max-width:760px;margin:0;line-height:1.5}.readout{display:flex;gap:8px;flex-wrap:wrap;margin-top:18px}.chip{font-size:.72rem;letter-spacing:.8px;padding:7px 10px;border:1px solid var(--line);border-radius:4px;color:var(--muted);background:#091b29}.chip b{color:var(--green)}
+main{max-width:1300px;margin:auto;padding:18px clamp(12px,3vw,30px) 35px}.nav{display:flex;gap:6px;overflow:auto;padding:7px;background:#081a28;border:1px solid var(--line);border-radius:8px}.nav button{white-space:nowrap;border:1px solid transparent;background:transparent;color:var(--muted);font-weight:850;letter-spacing:.4px;padding:11px 14px;border-radius:5px;cursor:pointer}.nav button.active{background:var(--cyan);color:#04131d}.grid{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:13px;margin-top:14px}.card{min-width:0;background:linear-gradient(150deg,#10283a,#0a1c2a);border:1px solid var(--line);border-radius:9px;padding:18px;box-shadow:0 12px 30px #0002}.span-8{grid-column:span 8}.span-7{grid-column:span 7}.span-6{grid-column:span 6}.span-5{grid-column:span 5}.span-4{grid-column:span 4}.span-12{grid-column:span 12}
+h2{font-size:1rem;letter-spacing:.8px;text-transform:uppercase;margin:0 0 14px}h3{margin:8px 0}.eyebrow{font-size:.68rem;letter-spacing:1.5px;color:var(--cyan);font-weight:900;margin-bottom:8px}.muted{color:var(--muted);font-size:.86rem;line-height:1.5}.metrics{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:9px}.metric{background:#081b29;border:1px solid var(--line);padding:13px;border-radius:6px}.metric small{display:block;color:var(--muted);font-size:.7rem;text-transform:uppercase;letter-spacing:.7px}.metric strong{display:block;font-size:1.65rem;margin-top:5px;overflow-wrap:anywhere}.metric em{font-style:normal;color:var(--cyan);font-size:.75rem}.fieldgrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.field{margin-top:10px}label{display:block;color:var(--muted);font-size:.77rem;font-weight:800;margin-bottom:5px}input,select,textarea{width:100%;border:1px solid #2b5065;border-radius:5px;background:#061521;color:var(--text);padding:11px;font:inherit}textarea{min-height:82px;resize:vertical}.btn{border:1px solid var(--cyan);background:var(--cyan);color:#04131d;font-weight:950;letter-spacing:.4px;border-radius:5px;padding:11px 14px;cursor:pointer;margin:5px 5px 0 0}.btn.alt{background:transparent;color:var(--cyan)}.btn.warn{border-color:var(--orange);background:transparent;color:var(--orange)}.btn.danger{border-color:var(--red);background:transparent;color:var(--red)}.status{display:inline-block;font-size:.67rem;font-weight:950;letter-spacing:1px;border:1px solid var(--green);color:var(--green);padding:5px 7px;border-radius:3px}.status.warn{border-color:var(--orange);color:var(--orange)}.item{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;padding:12px 0;border-bottom:1px solid #1c3b4f}.item:last-child{border-bottom:0}.item strong{display:block}.item small{color:var(--muted)}.item p{margin:6px 0 0;white-space:pre-wrap}.empty{padding:15px;border:1px dashed var(--line);color:var(--muted);border-radius:5px}.hidden{display:none}.tiny{font-size:.72rem;color:var(--muted)}.windbar{height:9px;background:#203d50;border-radius:10px;overflow:hidden;margin:14px 0 4px}.windbar div{height:100%;background:linear-gradient(90deg,var(--green),var(--cyan),var(--orange),var(--red));width:25%}.map{height:330px;border-radius:6px;border:1px solid var(--line);overflow:hidden;background:#081b29}.mapnote{font-size:.75rem;color:var(--muted);margin-top:8px}.chart{width:100%;height:230px;background:#081b29;border:1px solid var(--line);border-radius:6px;display:block}.fleetgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px}.fleetboat{border:1px solid var(--line);border-radius:6px;padding:13px;background:#081b29}.fleetboat strong{font-size:1.05rem}.fleetboat .boatmeta{font-size:.78rem;color:var(--muted);line-height:1.7;margin:8px 0}.badge{font-size:.68rem;color:var(--green);border:1px solid var(--green);padding:4px 6px;border-radius:3px;display:inline-block}.leaflet-container{font:inherit}
+footer{text-align:center;color:#7190a3;font-size:.72rem;letter-spacing:.6px;padding:25px 10px}
+@media(max-width:800px){.span-8,.span-7,.span-6,.span-5,.span-4{grid-column:span 12}.metrics{grid-template-columns:repeat(2,minmax(0,1fr))}}
+</style>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin="">
+
+<style>
+/* V4.3 Classic additions: intentionally inherit the original V4.2 look. */
+.classic-extra{margin:18px 0;padding:16px;border:1px solid var(--line,#24465b);border-radius:14px;background:var(--panel,#0c2131);color:var(--text,#e9f4fb)}
+.classic-extra h2{margin:0 0 8px;font-size:18px}
+.classic-extra p{color:var(--muted,#9bb6c8);font-size:13px;line-height:1.45}
+.classic-extra input,.classic-extra textarea,.classic-extra select{box-sizing:border-box;width:100%;padding:10px;margin:5px 0 10px;border-radius:8px;border:1px solid var(--line,#24465b);background:var(--bg,#06121d);color:var(--text,#e9f4fb);font:inherit}
+.classic-extra button{padding:9px 12px;margin:4px 6px 4px 0;border-radius:8px;border:1px solid var(--cyan,#49d8e8);background:transparent;color:var(--text,#e9f4fb);cursor:pointer}
+.classic-extra button:hover{filter:brightness(1.2)}
+.classic-extra .ce-row{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.classic-extra .ce-muted{font-size:12px;color:var(--muted,#9bb6c8)}
+.classic-extra li{padding:7px 0;border-bottom:1px solid var(--line,#24465b);overflow-wrap:anywhere}
+@media(max-width:600px){.classic-extra .ce-row{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<header><div class="top"><div class="logo"><div class="emblem">⚓</div><div>MCN <span style="color:var(--cyan)">SAILOPS</span><small>MARINE CREW NUMANSDORP</small></div></div><div class="classified">FIELD INTERFACE // V3.0</div></div>
+<h1>SAIL SMART.<br><span>SAIL READY.</span></h1><p class="sub">Weer, GPS-tracking, prestatieanalyse en vlootbeheer in één MCN-commandocentrum.</p>
+<div class="readout"><div class="chip">SYSTEM <b id="sysStatus">READY · V4.2</b></div><div class="chip">GPS <b id="gpsStatus">STANDBY</b></div><div class="chip">WEATHER <b id="weatherStatus">NOT LOADED</b></div><div class="chip">DATA <b>LOCAL DEVICE</b></div></div></header>
+
+<section class="classic-extra" id="mcn-memory-panel">
+  <h2>🧠 Geheugen & zeillogboek</h2>
+  <p>De bestaande V4.2-interface blijft behouden. Deze extra sectie bewaart sessies en notities lokaal op dit apparaat, ook zonder internet.</p>
+  <div class="ce-row">
+    <div>
+      <label for="mcn-mem-date">Datum</label><input id="mcn-mem-date" type="date">
+      <label for="mcn-mem-title">Naam van de sessie</label><input id="mcn-mem-title" placeholder="Bijv. Splash-training Binnenmaas">
+      <label for="mcn-mem-boat">Boot</label><input id="mcn-mem-boat" placeholder="Bijv. Splash / Optimist">
+    </div>
+    <div>
+      <label for="mcn-mem-wind">Wind (knopen)</label><input id="mcn-mem-wind" type="number" min="0" max="100" step="0.1" placeholder="Bijv. 12">
+      <label for="mcn-mem-speed">Topsnelheid (knopen)</label><input id="mcn-mem-speed" type="number" min="0" max="100" step="0.1" placeholder="Bijv. 7.4">
+      <label for="mcn-mem-notes">Notities / leerpunten</label><textarea id="mcn-mem-notes" rows="3" placeholder="Trim, omstandigheden, onderhoud, doelen..."></textarea>
+    </div>
+  </div>
+  <button id="mcn-mem-save">Sessie opslaan</button>
+  <button id="mcn-mem-export">Geheugen exporteren</button>
+  <label for="mcn-mem-import">Back-up importeren (JSON)</label><input id="mcn-mem-import" type="file" accept=".json,application/json">
+  <h3 style="font-size:15px;margin-top:14px">Opgeslagen sessies</h3>
+  <ul id="mcn-mem-list" style="padding-left:20px"></ul>
+  <button id="mcn-mem-clear">Alle sessies verwijderen</button>
+  <p class="ce-muted">Gegevens staan lokaal in de browseropslag. Maak regelmatig een back-up: browsergegevens kunnen verloren gaan als je ze wist of van apparaat wisselt.</p>
+</section>
+
+<section class="classic-extra" id="mcn-account-panel">
+  <h2>🔐 Account & cloudsynchronisatie</h2>
+  <p>Kies Google of e-mail/wachtwoord. Dit is de account-instelmodule; echte login en synchronisatie worden pas actief nadat een Supabase-project is ingesteld. Er worden hier geen wachtwoorden lokaal opgeslagen.</p>
+  <label for="mcn-auth-method">Aanmeldmethode</label>
+  <select id="mcn-auth-method">
+    <option value="google">Google-account</option>
+    <option value="email">E-mail en wachtwoord</option>
+    <option value="guest">Doorgaan als gast</option>
+  </select>
+  <div id="mcn-email-fields" class="ce-row">
+    <div><label for="mcn-auth-email">E-mailadres</label><input id="mcn-auth-email" type="email" autocomplete="email" placeholder="jij@example.com"></div>
+    <div><label for="mcn-auth-password">Wachtwoord</label><input id="mcn-auth-password" type="password" autocomplete="current-password" placeholder="Alleen actief na backendconfiguratie"></div>
+  </div>
+  <button id="mcn-auth-signin">Inloggen</button>
+  <button id="mcn-auth-signup">Account aanmaken</button>
+  <button id="mcn-auth-google">Verbinden met Google</button>
+  <button id="mcn-auth-guest">Gastmodus</button>
+  <div id="mcn-auth-status" role="status" class="ce-muted">Status: gastmodus · lokale opslag actief · cloud niet verbonden.</div>
+  <p class="ce-muted">Voor echte authenticatie configureer je Supabase URL en publieke anon key, stel je Google OAuth in en beveilig je tabellen met Row Level Security. Zet nooit een service-role key in dit HTML-bestand.</p>
+</section>
+
+<script>
+(function(){
+  const $ = id => document.getElementById(id);
+  const KEY = 'mcn_sailops_classic_memory_v43';
+  let sessions = [];
+  try { sessions = JSON.parse(localStorage.getItem(KEY) || '[]'); if (!Array.isArray(sessions)) sessions = []; } catch(e) { sessions = []; }
+  const today = new Date();
+  $('mcn-mem-date').value = today.getFullYear()+'-'+String(today.getMonth()+1).padStart(2,'0')+'-'+String(today.getDate()).padStart(2,'0');
+
+  function saveLocal(){ try { localStorage.setItem(KEY, JSON.stringify(sessions)); } catch(e) { alert('Opslaan mislukt. Exporteer een back-up en controleer de browseropslag.'); } }
+  function render(){
+    const list = $('mcn-mem-list'); list.innerHTML = '';
+    if (!sessions.length) { const li = document.createElement('li'); li.textContent = 'Nog geen sessies opgeslagen.'; list.appendChild(li); return; }
+    sessions.slice().reverse().forEach(s => {
+      const li = document.createElement('li');
+      const title = document.createElement('strong'); title.textContent = (s.title || 'Zeilsessie') + ' · ' + (s.date || 'Geen datum');
+      li.appendChild(title);
+      const detail = document.createElement('div');
+      detail.textContent = 'Boot: '+(s.boat || 'onbekend')+' · Wind: '+(s.wind === '' || s.wind == null ? 'onbekend' : s.wind+' kn')+' · Topsnelheid: '+(s.speed === '' || s.speed == null ? 'onbekend' : s.speed+' kn');
+      li.appendChild(detail);
+      if(s.notes){ const p=document.createElement('p'); p.textContent=s.notes; li.appendChild(p); }
+      list.appendChild(li);
+    });
+  }
+  $('mcn-mem-save').addEventListener('click', function(){
+    const title = $('mcn-mem-title').value.trim();
+    sessions.push({id: (crypto.randomUUID ? crypto.randomUUID() : String(Date.now())), date:$('mcn-mem-date').value, title:title || 'Zeilsessie', boat:$('mcn-mem-boat').value.trim(), wind:$('mcn-mem-wind').value, speed:$('mcn-mem-speed').value, notes:$('mcn-mem-notes').value.trim(), savedAt:new Date().toISOString()});
+    saveLocal(); render();
+    $('mcn-mem-title').value=''; $('mcn-mem-boat').value=''; $('mcn-mem-wind').value=''; $('mcn-mem-speed').value=''; $('mcn-mem-notes').value='';
+  });
+  $('mcn-mem-export').addEventListener('click', function(){
+    const blob = new Blob([JSON.stringify({app:'MCN SailOps',version:'4.3-classic',exportedAt:new Date().toISOString(),sessions:sessions},null,2)], {type:'application/json'});
+    const url=URL.createObjectURL(blob); const a=document.createElement('a'); a.href=url; a.download='mcn-sailops-geheugen-backup.json'; a.click(); setTimeout(()=>URL.revokeObjectURL(url),1000);
+  });
+  $('mcn-mem-import').addEventListener('change', async function(e){
+    const file=e.target.files && e.target.files[0]; if(!file)return;
+    try{
+      const data=JSON.parse(await file.text()); const incoming=Array.isArray(data)?data:data.sessions;
+      if(!Array.isArray(incoming)) throw new Error('Geen sessielijst gevonden');
+      if(!confirm('Importeren vervangt het huidige lokale geheugen. Doorgaan?')) return;
+      sessions=incoming; saveLocal(); render(); alert('Geheugen geïmporteerd.');
+    }catch(err){ alert('Import mislukt. Kies een geldige MCN JSON-back-up.'); }
+    finally{ e.target.value=''; }
+  });
+  $('mcn-mem-clear').addEventListener('click', function(){
+    if(confirm('Alle lokaal opgeslagen sessies verwijderen? Dit kan niet ongedaan worden gemaakt.')){sessions=[];saveLocal();render();}
+  });
+
+  function backendMessage(){
+    $('mcn-auth-status').textContent='Niet verbonden: de HTML bevat nog geen Supabase-projectconfiguratie. Er is dus nog geen account aangemaakt of login uitgevoerd. Lokale sessies blijven op dit apparaat beschikbaar.';
+  }
+  $('mcn-auth-method').addEventListener('change', function(){
+    const emailMode=this.value==='email';
+    $('mcn-email-fields').style.display=emailMode?'grid':'none';
+    $('mcn-auth-google').style.display=this.value==='google'?'inline-block':'none';
+    $('mcn-auth-signin').style.display=emailMode?'inline-block':'none';
+    $('mcn-auth-signup').style.display=emailMode?'inline-block':'none';
+  });
+  $('mcn-auth-signin').addEventListener('click', backendMessage);
+  $('mcn-auth-signup').addEventListener('click', backendMessage);
+  $('mcn-auth-google').addEventListener('click', backendMessage);
+  $('mcn-auth-guest').addEventListener('click', function(){
+    $('mcn-auth-status').textContent='Gastmodus actief: lokale sessies beschikbaar. Geen account of cloudsync verbonden.';
+    $('mcn-auth-method').value='guest'; $('mcn-auth-method').dispatchEvent(new Event('change'));
+  });
+  $('mcn-auth-method').dispatchEvent(new Event('change'));
+  render();
+})();
+</script>
+
+<main><nav class="nav">
+<button class="active" data-tab="overview">◈ OVERVIEW</button><button data-tab="weather">◉ LIVE WEATHER</button><button data-tab="gps">⌖ GPS TRACK</button><button data-tab="stats">▥ PERFORMANCE</button><button data-tab="fleet">⚓ MCN FLEET</button><button data-tab="log">▤ SAIL LOG</button><button data-tab="trim">⌁ TRIM LAB</button><button data-tab="check">☑ PRE-SAIL</button>
+</nav>
+<section id="overview" class="tab"><div class="grid">
+<article class="card span-8"><div class="eyebrow">01 / OPERATIONS OVERVIEW</div><h2>Current conditions</h2><div class="metrics"><div class="metric"><small>Wind</small><strong id="oWind">-- <em>kn</em></strong></div><div class="metric"><small>Direction</small><strong id="oDir">--</strong></div><div class="metric"><small>Temperature</small><strong id="oTemp">--<em>°C</em></strong></div><div class="metric"><small>GPS speed</small><strong id="oSpeed">--<em> kn</em></strong></div></div><div class="windbar"><div id="oBar"></div></div><p class="muted" id="oWeatherNote">Haal live weer op via de Live Weather-tab.</p><button class="btn alt" onclick="go('weather')">OPEN LIVE WEATHER →</button><button class="btn alt" onclick="go('gps')">OPEN GPS TRACK →</button></article>
+<article class="card span-4"><div class="eyebrow">02 / MISSION STATUS</div><h2>Fleet summary</h2><div class="item"><div><small>Zeildagen gelogd</small><strong id="statDays">0</strong></div><span>📓</span></div><div class="item"><div><small>GPS-afstand deze sessie</small><strong id="statDistance">0.00 nm</strong></div><span>⌖</span></div><div class="item"><div><small>Geregistreerde boten</small><strong id="statFleet">0</strong></div><span>⛵</span></div></article>
+<article class="card span-6"><div class="eyebrow">03 / LAST OPERATION</div><h2>Latest sail log</h2><div id="latest" class="empty">Nog geen zeildagen opgeslagen.</div></article>
+<article class="card span-6"><div class="eyebrow">04 / TRACK STATUS</div><h2>GPS session</h2><p class="muted" id="overviewGPS">GPS-tracking staat uit.</p><button class="btn" onclick="go('gps')">OPEN TRACKING →</button><p class="tiny">GPS werkt alleen als je browser toestemming heeft en de pagina via HTTPS of localhost wordt geopend. Dit bestand kan op sommige apparaten GPS blokkeren.</p></article>
+</div></section>
+<section id="weather" class="tab hidden"><div class="grid">
+<article class="card span-6"><div class="eyebrow">LIVE METEOROLOGY / OPEN-METEO</div><h2>Get local weather</h2><p class="muted">Gebruik GPS voor je huidige locatie of vul coördinaten in. De app haalt actuele gegevens op via Open-Meteo, zonder API-sleutel. Internet vereist.</p><div class="fieldgrid"><div class="field"><label>Latitude</label><input id="lat" type="number" step="any" value="51.79"></div><div class="field"><label>Longitude</label><input id="lon" type="number" step="any" value="4.55"></div></div><button class="btn" id="fetchWeather">FETCH LIVE WEATHER</button><button class="btn alt" id="useGPSWeather">USE MY GPS LOCATION</button><div id="weatherMsg" class="mapnote">Nog geen live weer opgehaald.</div></article>
+<article class="card span-6"><div class="eyebrow">LATEST WEATHER REPORT</div><h2 id="weatherTitle">Weather station: awaiting data</h2><div class="metrics"><div class="metric"><small>Wind speed (kn)</small><strong id="wWind">--</strong><em> kn</em></div><div class="metric"><small>Wind gusts (kn)</small><strong id="wGust">--</strong><em> kn</em></div><div class="metric"><small>Temperature</small><strong id="wTemp">--</strong><em> °C</em></div><div class="metric"><small>Wind direction</small><strong id="wDir">--</strong><em> °</em></div></div><p id="weatherTime" class="muted">Tijdstip wordt getoond na ophalen.</p><p class="muted">Weerdata wordt live opgehaald via internet en weergegeven in knopen. Controleer officiële waarschuwingen en lokale omstandigheden voordat je gaat varen.</p></article>
+</div></section>
+<section id="gps" class="tab hidden"><div class="grid">
+<article class="card span-8"><div class="eyebrow">NAVIGATION / GPS TRACKING</div><h2>Live route map</h2><div id="map" class="map"></div><p class="mapnote">Kaarttegels van OpenStreetMap. Je positie en route worden lokaal bijgehouden zolang de sessie loopt.</p></article>
+<article class="card span-4"><div class="eyebrow">TRACK TELEMETRY</div><h2>Session instruments</h2><div class="metrics" style="grid-template-columns:1fr 1fr"><div class="metric"><small>Speed</small><strong id="gpsSpeed">--</strong><em> kn</em></div><div class="metric"><small>Distance</small><strong id="gpsDist">0.00</strong><em> nm</em></div><div class="metric"><small>Max speed</small><strong id="gpsMax">--</strong><em> kn</em></div><div class="metric"><small>GPS fixes</small><strong id="gpsFixes">0</strong></div></div><p id="gpsMessage" class="muted">Start een GPS-sessie om je route te registreren.</p><button class="btn" id="startGPS">START GPS SESSION</button><button class="btn warn" id="stopGPS" disabled>STOP SESSION</button><button class="btn alt" id="saveTrack">SAVE TRACK TO LOG</button><button class="btn danger" id="clearTrack">CLEAR TRACK</button><p class="tiny">Snelheid is een GPS-schatting over de grond, geen watersnelheid door het water. GPS kan onnauwkeurig zijn en werkt niet in elke browsercontext.</p></article>
+</div></section>
+<section id="stats" class="tab hidden"><div class="grid">
+<article class="card span-12"><div class="eyebrow">PERFORMANCE / TREND ANALYSIS</div><h2>Compare your sailing over time</h2><p class="muted">Grafieken gebruiken opgeslagen zeillogboekgegevens. Voeg na een sessie je duur, wind en topsnelheid toe om trends te zien.</p><div class="metrics"><div class="metric"><small>Logged sessions</small><strong id="pSessions">0</strong></div><div class="metric"><small>Total sailing time</small><strong id="pTime">0 h</strong></div><div class="metric"><small>Average wind</small><strong id="pWind">--</strong><em> Bft</em></div><div class="metric"><small>Recorded best speed</small><strong id="pSpeed">--</strong><em> kn</em></div></div></article>
+<article class="card span-6"><h2>Session duration (minutes)</h2><canvas class="chart" id="durationChart" width="700" height="260"></canvas></article>
+<article class="card span-6"><h2>Wind by session (Bft)</h2><canvas class="chart" id="windChart" width="700" height="260"></canvas></article>
+<article class="card span-12"><h2>Performance history</h2><div id="performanceList" class="empty">Nog onvoldoende gegevens. Voeg zeildagen toe in Sail Log.</div></article>
+</div></section>
+<section id="fleet" class="tab hidden"><div class="grid">
+<article class="card span-5"><div class="eyebrow">FLEET MANAGEMENT / REGISTER</div><h2>Register vessel</h2><form id="fleetForm"><div class="field"><label>Bootnaam</label><input id="fName" placeholder="Bijv. Darkstar" required></div><div class="fieldgrid"><div class="field"><label>Type / klasse</label><select id="fClass"><option>Splash</option><option>Optimist</option><option>Laser / ILCA</option><option>RS Feva</option><option>RS500</option><option>Anders</option></select></div><div class="field"><label>Zeilnummer</label><input id="fNumber" placeholder="NED 1234"></div><div class="field"><label>Bemanning / eigenaar</label><input id="fOwner" placeholder="Naam / crew"></div><div class="field"><label>Status</label><select id="fStatus"><option>Beschikbaar</option><option>In training</option><option>Onderhoud</option><option>Niet beschikbaar</option></select></div></div><div class="field"><label>Notities</label><textarea id="fNotes" placeholder="Materiaal, aanpassingen, onderhoud..."></textarea></div><button class="btn">ADD TO MCN FLEET</button></form></article>
+<article class="card span-7"><div class="eyebrow">MCN / VESSEL ROSTER</div><h2>Fleet overview</h2><p class="muted">Deze vlootlijst wordt op dit apparaat bewaard. Voor gedeelde realtime updates tussen verschillende crewleden is later een online database en login nodig.</p><div id="fleetList" class="fleetgrid"><div class="empty">Nog geen boten geregistreerd.</div></div></article>
+</div></section>
+<section id="log" class="tab hidden"><div class="grid">
+<article class="card span-5"><div class="eyebrow">DATA ENTRY / SAIL LOG</div><h2>Record sail session</h2><form id="logForm"><div class="field"><label>Datum</label><input id="logDate" type="date" required></div><div class="fieldgrid"><div class="field"><label>Locatie</label><input id="logLoc" placeholder="Binnenmaas" required></div><div class="field"><label>Wind (Bft)</label><input id="logWind" type="number" min="0" max="12" value="3" required></div><div class="field"><label>Duur (minuten)</label><input id="logDur" type="number" min="1" value="90" required></div><div class="field"><label>Topsnelheid (kn, optioneel)</label><input id="logSpeed" type="number" min="0" step=".1" placeholder="GPS max"></div></div><div class="field"><label>Focus / notities</label><textarea id="logNotes" placeholder="Trim, gijpen, boeirondingen, wat ging goed?"></textarea></div><button class="btn">SAVE LOG ENTRY</button></form></article>
+<article class="card span-7"><div class="eyebrow">ARCHIVE / PERSONAL RECORDS</div><h2>Sail log archive</h2><div id="logs" class="empty">Nog geen zeildagen opgeslagen.</div></article>
+</div></section>
+<section id="trim" class="tab hidden"><div class="grid"><article class="card span-12"><div class="eyebrow">TRIM LAB / QUICK REFERENCE</div><h2>Trim notes by wind strength</h2><p class="muted">Algemene startpunten, geen officiële trimhandleiding. Volg klasse-instructies en trainer.</p><div class="metrics"><div class="metric"><small>0–1 Bft</small><strong style="font-size:1rem">LIGHT AIR</strong><p class="muted">Houd het zeil soepel en focus op snelheid.</p></div><div class="metric"><small>2–3 Bft</small><strong style="font-size:1rem">MODERATE</strong><p class="muted">Basistrim, telltales en bootbalans observeren.</p></div><div class="metric"><small>4–5 Bft</small><strong style="font-size:1rem">FRESH</strong><p class="muted">Controleer beheersbaarheid, materiaal en klassetrim.</p></div><div class="metric"><small>6+ Bft</small><strong style="font-size:1rem">CAUTION</strong><p class="muted">Alleen varen als niveau, materiaal en veiligheidsbeoordeling het toelaten.</p></div></div><div class="field"><label>Persoonlijke trimnotitie</label><textarea id="trimNotes" placeholder="Boot, zeil, wind en instellingen..."></textarea></div><button class="btn" id="saveTrim">SAVE TRIM NOTE</button><div id="trimArchive" style="margin-top:12px"></div></article></div></section>
+<section id="check" class="tab hidden"><div class="grid"><article class="card span-6"><div class="eyebrow">BEFORE DEPARTURE</div><h2>Pre-sail checklist</h2><div id="checks"></div><button class="btn alt" id="resetChecks">RESET CHECKLIST</button></article><article class="card span-6"><div class="eyebrow">SAFETY / MAINTENANCE</div><h2>Repair & gear notes</h2><textarea id="maint" placeholder="Downhaul, elastieken, hangbanden, plugdop..."></textarea><button class="btn" id="saveMaint">SAVE MAINTENANCE NOTE</button><p id="maintStatus" class="tiny"></p><p class="muted">Draag passende veiligheidsuitrusting, check officiële weerswaarschuwingen en vertel iemand waar je gaat varen. Deze app is geen noodsysteem.</p></article></div></section>
+<footer>MCN SAILOPS // MARINE CREW NUMANSDORP // V3.0 // LIVE SERVICES REQUIRE INTERNET AND PERMISSIONS</footer></main>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
+<script>
+const $=id=>document.getElementById(id), today=()=>new Date().toISOString().slice(0,10);
+const load=(k,d)=>{try{return JSON.parse(localStorage.getItem(k)||JSON.stringify(d))}catch{return d}}, save=(k,v)=>{try{localStorage.setItem(k,JSON.stringify(v));return true}catch(e){console.warn('Lokale opslag niet beschikbaar:',e);return false}};
+let logs=load('mcn3_logs',[]), fleet=load('mcn3_fleet',[]), checks=load('mcn3_checks',{}), trims=load('mcn3_trims',[]), track=[], watchId=null, map=null, routeLine=null, positionMarker=null, gpsDistance=0, maxSpeed=0, lastPos=null, gpsFixCount=0, weatherData=null;
+const checklist=['Reddingsvest en geschikte kleding','Weersverwachting en waarschuwingen gecontroleerd','Romp, roer en zwaard gecontroleerd','Mast, giek en tuigage gecontroleerd','Zeilen en trimlijnen gecontroleerd','Downhaul, elastieken en hangbanden gecontroleerd','Dop / plug en lekkage gecontroleerd','Water en telefoon veilig opgeborgen','Iemand weet waar je gaat varen','Trainer / vaargebiedregels besproken'];
+$('logDate').value=today();
+function esc(s){return String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
+function go(id){document.querySelectorAll('.nav button').forEach(b=>b.classList.toggle('active',b.dataset.tab===id));document.querySelectorAll('.tab').forEach(s=>s.classList.toggle('hidden',s.id!==id));if(id==='gps')setTimeout(initMap,120);if(id==='stats')drawCharts();}
+document.querySelectorAll('.nav button').forEach(b=>b.onclick=()=>go(b.dataset.tab));
+function direction(deg){return ['N','NNO','NO','ONO','O','OZO','ZO','ZZO','Z','ZZW','ZW','WZW','W','WNW','NW','NNW'][Math.round((deg%360)/22.5)%16]}
+async function fetchWeather(lat=$('lat').value,lon=$('lon').value){const msg=$('weatherMsg');msg.textContent='Live weer wordt opgehaald…';try{lat=Number(lat);lon=Number(lon);if(!Number.isFinite(lat)||!Number.isFinite(lon)||Math.abs(lat)>90||Math.abs(lon)>180)throw Error('Controleer latitude en longitude.');const url=`https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current=temperature_2m,wind_speed_10m,wind_direction_10m,wind_gusts_10m&wind_speed_unit=kn&timezone=auto`;const r=await fetch(url);if(!r.ok)throw Error('Weerbron antwoordde niet. Probeer later opnieuw.');const j=await r.json();weatherData={...j.current,lat,lon};$('weatherTitle').textContent=`Weather station · ${lat.toFixed(3)}, ${lon.toFixed(3)}`;$('wWind').textContent=Number(j.current.wind_speed_10m).toFixed(1);$('wGust').textContent=Number(j.current.wind_gusts_10m).toFixed(1);$('wTemp').textContent=Math.round(j.current.temperature_2m);$('wDir').textContent=Math.round(j.current.wind_direction_10m);$('weatherTime').textContent=`Tijdstip: ${j.current.time} · ${j.timezone}`;$('weatherStatus').textContent='LIVE DATA';$('oWind').innerHTML=`${Number(j.current.wind_speed_10m).toFixed(1)} <em>kn</em>`;$('oDir').textContent=direction(j.current.wind_direction_10m);$('oTemp').innerHTML=`${Math.round(j.current.temperature_2m)}<em>°C</em>`;$('oBar').style.width=Math.min(100,Number(j.current.wind_speed_10m)/50*100)+'%';$('oWeatherNote').textContent=`Laatste update ${j.current.time}; windvlagen ${Number(j.current.wind_gusts_10m).toFixed(1)} kn. Controleer altijd de officiële lokale waarschuwingen.`;msg.textContent='Weer succesvol bijgewerkt via Open-Meteo.';}catch(e){msg.textContent=`Kon live weer niet ophalen: ${e.message} Controleer je internetverbinding.`;$('weatherStatus').textContent='OFFLINE';}}
+$('fetchWeather').onclick=()=>fetchWeather();
+function locate(success,fail){if(!navigator.geolocation){fail('Deze browser ondersteunt geen geolocatie.');return;}navigator.geolocation.getCurrentPosition(p=>success(p.coords.latitude,p.coords.longitude),e=>fail(e.message),{enableHighAccuracy:true,timeout:15000,maximumAge:3000});}
+$('useGPSWeather').onclick=()=>locate((lat,lon)=>{$('lat').value=lat.toFixed(6);$('lon').value=lon.toFixed(6);fetchWeather(lat,lon)},m=>$('weatherMsg').textContent='GPS-locatie niet beschikbaar: '+m);
+function initMap(){if(map||!$('map'))return;if(!window.L){$('gpsMessage').textContent='De kaartbibliotheek kon niet laden. GPS-data kan nog werken; controleer je internetverbinding.';return;}map=L.map('map').setView([51.79,4.55],13);L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:19,attribution:'© OpenStreetMap contributors'}).addTo(map);routeLine=L.polyline([],{color:'#49d8e8',weight:4}).addTo(map);map.invalidateSize();}
+function updateTrackMap(lat,lon){initMap();if(!map)return;const pt=[lat,lon];track.push({lat,lon,time:new Date().toISOString()});routeLine.addLatLng(pt);if(!positionMarker)positionMarker=L.circleMarker(pt,{radius:7,color:'#49d8e8',fillColor:'#49d8e8',fillOpacity:1}).addTo(map);else positionMarker.setLatLng(pt);map.setView(pt,Math.max(map.getZoom(),15));$('gpsFixes').textContent=track.length;}
+function startGPS(){if(!navigator.geolocation){$('gpsMessage').textContent='Geolocatie niet ondersteund.';return;}if(watchId!==null)return;track=[];gpsDistance=0;maxSpeed=0;lastPos=null;gpsFixCount=0;initMap();if(routeLine)routeLine.setLatLngs([]);$('gpsStatus').textContent='TRACKING';$('startGPS').disabled=true;$('stopGPS').disabled=false;$('gpsMessage').textContent='Wacht op GPS-fix…';watchId=navigator.geolocation.watchPosition(p=>{const c=p.coords,lat=c.latitude,lon=c.longitude;let speed=c.speed!=null?Math.max(0,c.speed*1.943844):0;if(lastPos){const d=haversine(lastPos.lat,lastPos.lon,lat,lon);if(d<0.2){gpsDistance+=d;}else{$('gpsMessage').textContent='GPS-sprong genegeerd; wacht op stabiele positie.';}}lastPos={lat,lon};gpsFixCount++;maxSpeed=Math.max(maxSpeed,speed);updateTrackMap(lat,lon);$('gpsSpeed').textContent=speed.toFixed(1);$('oSpeed').innerHTML=`${speed.toFixed(1)}<em> kn</em>`;$('gpsDist').textContent=gpsDistance.toFixed(2);$('gpsMax').textContent=maxSpeed.toFixed(1);$('statDistance').textContent=gpsDistance.toFixed(2)+' nm';$('gpsMessage').textContent=`GPS-fix ontvangen · nauwkeurigheid ±${Math.round(c.accuracy)} m · ${new Date().toLocaleTimeString()}`;$('overviewGPS').textContent=`Tracking actief · ${track.length} GPS-fixes · afstand ${gpsDistance.toFixed(2)} nm.`;},e=>{$('gpsMessage').textContent='GPS-fout: '+e.message+' Controleer locatiepermissies en open via HTTPS of localhost.';stopGPS();},{enableHighAccuracy:true,maximumAge:1000,timeout:15000});}
+function stopGPS(){if(watchId!==null)navigator.geolocation.clearWatch(watchId);watchId=null;$('gpsStatus').textContent='STANDBY';$('startGPS').disabled=false;$('stopGPS').disabled=true;$('overviewGPS').textContent=`Sessie gestopt · ${track.length} fixes · afstand ${gpsDistance.toFixed(2)} nm.`;}
+function haversine(a,b,c,d){const R=3440.065,rad=x=>x*Math.PI/180,dl=rad(c-a),dn=rad(d-b),v=Math.sin(dl/2)**2+Math.cos(rad(a))*Math.cos(rad(c))*Math.sin(dn/2)**2;return 2*R*Math.asin(Math.sqrt(v));}
+$('startGPS').onclick=startGPS;$('stopGPS').onclick=stopGPS;$('clearTrack').onclick=()=>{stopGPS();track=[];gpsDistance=0;maxSpeed=0;lastPos=null;if(routeLine)routeLine.setLatLngs([]);if(positionMarker){positionMarker.remove();positionMarker=null;}$('gpsSpeed').textContent='--';$('gpsDist').textContent='0.00';$('gpsMax').textContent='--';$('gpsFixes').textContent='0';$('statDistance').textContent='0.00 nm';$('gpsMessage').textContent='Track gewist.';};
+$('saveTrack').onclick=()=>{if(!track.length){$('gpsMessage').textContent='Geen GPS-punten om op te slaan.';return;}logs.unshift({id:Date.now(),date:today(),loc:'GPS track',wind:weatherData?Math.round(weatherData.wind_speed_10m/4):'',dur:0,speed:+maxSpeed.toFixed(1),notes:`GPS-track: ${track.length} fixes; geschatte afstand ${gpsDistance.toFixed(2)} nm. Trackpunten: ${track.map(p=>`${p.lat.toFixed(5)},${p.lon.toFixed(5)}`).join('; ')}`});save('mcn3_logs',logs);render();$('gpsMessage').textContent='Track-samenvatting opgeslagen in Sail Log.';};
+$('logForm').onsubmit=e=>{e.preventDefault();logs.unshift({id:Date.now(),date:$('logDate').value,loc:$('logLoc').value,wind:+$('logWind').value,dur:+$('logDur').value,speed:$('logSpeed').value===''?null:+$('logSpeed').value,notes:$('logNotes').value});save('mcn3_logs',logs);e.target.reset();$('logDate').value=today();render();};
+$('fleetForm').onsubmit=e=>{e.preventDefault();fleet.push({id:Date.now(),name:$('fName').value,cls:$('fClass').value,no:$('fNumber').value,owner:$('fOwner').value,status:$('fStatus').value,notes:$('fNotes').value});save('mcn3_fleet',fleet);e.target.reset();render();};
+function deleteFleet(id){fleet=fleet.filter(x=>x.id!==id);save('mcn3_fleet',fleet);render();}
+function renderFleet(){$('fleetList').innerHTML=fleet.length?fleet.map(b=>`<div class="fleetboat"><span class="badge">${esc(b.status)}</span><h3>${esc(b.name)}</h3><strong>${esc(b.cls)}</strong><div class="boatmeta">Zeilnummer: ${esc(b.no||'—')}<br>Bemanning: ${esc(b.owner||'—')}<br>${esc(b.notes||'Geen notities')}</div><button class="btn danger" onclick="deleteFleet(${b.id})">REMOVE</button></div>`).join(''):'<div class="empty">Nog geen boten geregistreerd.</div>';$('statFleet').textContent=fleet.length;}
+function renderLogs(){$('logs').innerHTML=logs.length?logs.map(x=>`<div class="item"><div><strong>${esc(x.date)} · ${esc(x.loc)}</strong><small>${esc(x.wind)} Bft · ${esc(x.dur)} min · topsnelheid ${x.speed==null?'—':esc(x.speed)+' kn'}</small>${x.notes?`<p>${esc(x.notes)}</p>`:''}</div><button class="btn danger" onclick="deleteLog(${x.id})">DELETE</button></div>`).join(''):'<div class="empty">Nog geen zeildagen opgeslagen.</div>';$('latest').innerHTML=logs[0]?`<strong>${esc(logs[0].date)} · ${esc(logs[0].loc)}</strong><p class="muted">${esc(logs[0].wind)} Bft · ${esc(logs[0].dur)} min · topsnelheid ${logs[0].speed==null?'—':esc(logs[0].speed)+' kn'}</p><p>${esc(logs[0].notes||'Geen notities.')}</p>`:'Nog geen zeildagen opgeslagen.';$('statDays').textContent=logs.length;}
+function deleteLog(id){logs=logs.filter(x=>x.id!==id);save('mcn3_logs',logs);render();}
+function drawChart(id,values,label,suffix){const c=$(id),ctx=c.getContext('2d'),w=c.width,h=c.height;ctx.clearRect(0,0,w,h);ctx.strokeStyle='#24465b';ctx.fillStyle='#9bb6c8';ctx.font='12px system-ui';for(let i=0;i<5;i++){let y=20+(h-50)*i/4;ctx.beginPath();ctx.moveTo(42,y);ctx.lineTo(w-15,y);ctx.stroke();}if(!values.length){ctx.fillText('Voeg zeildagen toe om trends te zien',55,h/2);return;}let max=Math.max(...values.map(v=>v.v),1),usableW=w-70,step=usableW/values.length;values.forEach((o,i)=>{let bh=(h-65)*o.v/max,x=48+i*step,y=h-35-bh;ctx.fillStyle='#49d8e8';ctx.fillRect(x,y,Math.max(4,step*.58),bh);ctx.fillStyle='#e9f4fb';ctx.fillText(String(o.v)+suffix,x,y-5);ctx.fillStyle='#9bb6c8';ctx.fillText(o.label.slice(5),x,h-15);});ctx.fillStyle='#9bb6c8';ctx.fillText(label,10,15);}
+function drawCharts(){let data=logs.slice(0,12).reverse().map(x=>({label:x.date||'',v:Number(x.dur)||0}));drawChart('durationChart',data,'Minutes','m');let wd=logs.slice(0,12).reverse().map(x=>({label:x.date||'',v:Number(x.wind)||0}));drawChart('windChart',wd,'Beaufort',' Bft');$('pSessions').textContent=logs.length;$('pTime').textContent=(logs.reduce((s,x)=>s+(Number(x.dur)||0),0)/60).toFixed(1)+' h';let winds=logs.map(x=>Number(x.wind)).filter(Number.isFinite);$('pWind').textContent=winds.length?(winds.reduce((a,b)=>a+b,0)/winds.length).toFixed(1):'--';let speeds=logs.map(x=>Number(x.speed)).filter(x=>Number.isFinite(x)&&x>0);$('pSpeed').textContent=speeds.length?Math.max(...speeds).toFixed(1):'--';$('performanceList').innerHTML=logs.length?logs.slice(0,12).map(x=>`<div class="item"><div><strong>${esc(x.date)} · ${esc(x.loc)}</strong><small>${esc(x.dur)} min · ${esc(x.wind)} Bft · ${x.speed==null?'geen snelheid':esc(x.speed)+' kn'}</small></div></div>`).join(''):'Nog onvoldoende gegevens. Voeg zeildagen toe in Sail Log.';}
+$('saveTrim').onclick=()=>{const n=$('trimNotes').value.trim();if(!n)return;trims.unshift({id:Date.now(),text:n,date:today()});save('mcn3_trims',trims);$('trimNotes').value='';renderTrims();};
+function renderTrims(){$('trimArchive').innerHTML=trims.length?trims.map(t=>`<div class="item"><div><strong>${esc(t.date)}</strong><p>${esc(t.text)}</p></div><button class="btn danger" onclick="deleteTrim(${t.id})">DELETE</button></div>`).join(''):'<div class="empty">Nog geen trimnotities.</div>';}
+function deleteTrim(id){trims=trims.filter(t=>t.id!==id);save('mcn3_trims',trims);renderTrims();}
+function renderChecks(){$('checks').innerHTML=checklist.map((x,i)=>`<label style="display:flex;gap:10px;align-items:center;padding:10px 0;border-bottom:1px solid #1c3b4f"><input style="width:auto" type="checkbox" data-check="${i}" ${checks[i]?'checked':''}><span>${x}</span></label>`).join('');document.querySelectorAll('[data-check]').forEach(c=>c.onchange=()=>{checks[c.dataset.check]=c.checked;save('mcn3_checks',checks);});}
+$('resetChecks').onclick=()=>{checks={};save('mcn3_checks',checks);renderChecks();};
+$('saveMaint').onclick=()=>{try{localStorage.setItem('mcn3_maint',$('maint').value);$('maintStatus').textContent='Notitie lokaal opgeslagen.';}catch(e){$('maintStatus').textContent='Opslaan geblokkeerd door browserinstellingen.';}};try{$('maint').value=localStorage.getItem('mcn3_maint')||'';}catch(e){$('maint').value='';}
+function render(){renderLogs();renderFleet();renderChecks();renderTrims();drawCharts();$('statDistance').textContent=gpsDistance.toFixed(2)+' nm';}
+render();fetchWeather(51.79,4.55);
+</script></body></html>
